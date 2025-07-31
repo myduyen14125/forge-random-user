@@ -1,0 +1,28 @@
+modules:
+  jira:issuePanel:
+    - key: random-user-hello-world-issue-panel
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: random-user
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  jira:adminPage:
+    - key: random-user-administration
+      render: native
+      resource: run-administration
+      title: Random user administration
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+  - key: run-administration
+    path: src/frontend/administration
+app:
+  runtime:
+    name: nodejs22.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/4d1b96e8-4c96-44d0-a7a1-c5b6344c5f56
